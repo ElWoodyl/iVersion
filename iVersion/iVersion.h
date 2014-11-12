@@ -153,6 +153,7 @@ typedef NS_ENUM(NSInteger, iVersionUpdatePriority)
 @property (nonatomic, assign) BOOL checkAtLaunch;
 @property (nonatomic, assign) BOOL verboseLogging;
 @property (nonatomic, assign) BOOL previewMode;
+@property (nonatomic, copy) NSString *simulateRemoteVersion;
 
 //advanced properties for implementing custom behaviour
 @property (nonatomic, copy) NSString *remoteVersionsPlistURL;

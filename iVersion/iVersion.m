@@ -404,7 +404,7 @@ static NSString *const iVersionMacAppStoreURLFormat = @"macappstore://itunes.app
 
 - (NSString *)versionDetailsSince:(NSString *)lastVersion inDict:(NSDictionary *)dict
 {
-    if (self.previewMode)
+    if (self.previewMode || self.simulateRemoteVersion)
     {
         lastVersion = @"0";
     }
@@ -473,6 +473,13 @@ static NSString *const iVersionMacAppStoreURLFormat = @"macappstore://itunes.app
     }
     
 #endif
+    
+    if (self.simulateRemoteVersion)
+    {
+        NSMutableDictionary* remoteVersionsDict = [NSMutableDictionary dictionary];
+        [remoteVersionsDict setObject:@"" forKey:self.simulateRemoteVersion];
+        self.remoteVersionsDict = remoteVersionsDict;
+    }
     
     if (self.checkingForNewVersion)
     {
